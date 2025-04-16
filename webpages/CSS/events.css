@@ -55,7 +55,7 @@ ul {
 }
 
 .logo a:hover {
-    background-color: rgb(20,20,20);
+    background-color: black;
     color: white;
 }
 
@@ -69,7 +69,7 @@ ul {
     padding: 0;
     overflow: hidden;
     position: fixed;
-    background-color: rgb(20,20,20);
+    background-color: black;
     height: 60px;
     width: 99%
 }

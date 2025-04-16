@@ -1,7 +1,7 @@
 .display-black {
     height: 500px;
     display:flex;
-    background-color: rgb(20,20,20);
+    background-color:black;
     text-shadow: 2px 2px 5px rgb(162, 0, 255);
     flex-direction: row-reverse;
 }
@@ -100,7 +100,7 @@ h2 {
 
 .divider{
     width: 100%;
-    color: rgb(20,20,20);
+    color:black;
     height:40px;
 }
 
@@ -122,7 +122,7 @@ ul {
     padding: 0;
     overflow: hidden;
     position: fixed;
-    background-color: rgb(20,20,20);
+    background-color:black;
     height: 60px;
     width: 99%
 }
@@ -166,7 +166,7 @@ li {
 }
 
 .logo a:hover {
-    background-color: rgb(20,20,20);
+    background-color:black;
     color: white;
 }
 
@@ -181,7 +181,7 @@ li {
 }
 
 body {
-    background: rgb(20,20,20);
+    background:black;
     font-family: bungee;
     color: white;
     text-align: center;

@@ -68,7 +68,7 @@ h2 {
 
 #weekdays {
     margin: auto;
-    background-color:rgb(20,20,20);
+    background-color:black;
     width:70%;
 }
   
@@ -193,7 +193,7 @@ ul {
     padding: 0;
     overflow: hidden;
     position: fixed;
-    background-color: rgb(20,20,20);
+    background-color: black;
     height: 60px;
     width: 99%
 }
@@ -248,7 +248,7 @@ li {
 }
 
 body {
-    background: rgb(20,20,20);
+    background: black;
     font-family: bungee;
     color: white;
     text-align: center;
