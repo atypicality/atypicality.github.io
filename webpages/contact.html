@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../webpages/CSS/contact.css">
+    <link rel="stylesheet" href="../webpages/CSS/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        Eighth Wonder | Contact
+    </title>
+    <link rel="icon" type="image/x-icon" href="../webpages/Images/EightWonderLogo.png">
+</head>
+
+<body>
+
+    <div id="nav">
+        <ul>
+            <li class=logo><a href="../index.html"><img src="../webpages/Images/EightWonderLogo.png"
+                        id="EighthWonderNavBar" alt="Eighth Wonder Logo"></a></li>
+            <li class=logo><a href="../index.html">Eighth Wonder</a></li>
+            <li class=rightBar><a href="../webpages/faq.html">FAQ</a></li>
+            <li class=rightBar><a class="active" href="../webpages/contact.html">Contact</a></li>
+            <li class=rightBar><a href="../webpages/events.html">Events</a></li>
+            <li class=rightBar><a href="../webpages/schedule.html">Schedule</a></li>
+            <li class=rightBar><a href="../webpages/about-us.html">About Us</a></li>
+            <li class=rightBar><a href="../index.html">Home</a></li>
+        </ul>
+    </div>
+
+    <h1>Interested?</h1>
+    <p class="subheader">Join our waiting list!</p>
+    <div id="formBox">
+        <form id="form" name="form" action="./database/process-form.php" method="post" onsubmit="return validate(this);">
+            <fieldset>
+                <div class="formData">
+                    <label for="firstName">First Name</label>
+                    <div class="value">
+                        <input type="text" size="60" name="firstName" id="firstName" autofocus>
+                    </div>
+                    <label for="lastName">Last Name</label>
+                    <div class="value">
+                        <input type="text" size="60" name="lastName" id="lastName">
+                    </div>
+                    <label for="email">RPI Email ( @rpi.edu )</label>
+                    <div class="value">
+                        <input type="text" size="60" name="email" id="email">
+                    </div>
+                    <label for="discord">Discord Handle</label>
+                    <div class="value">
+                        <input type="discord" size="60" name="discord" id="discord">
+                    </div>
+                    <label for="gradyear">Graduation Year</label>
+                    <div class="value">
+                        <input type="gradyear" size="60" name="gradyear" id="gradyear">
+                    </div>
+                    <div class="note">
+                        <p class="note-text">NOTE:</p>
+                        <p>You will be contacted once you are off the waitlist. We look forward to dancing with you!
+                            <br><br> Please note our club dues are <span style="color: rgba(255, 0, 68, 0.7);">$5</span>
+                            per semester.
+                        </p>
+                    </div>
+                    <input type="submit" value="submit" id="submit" name="submit">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <script src="../webpages/JavaScript/contact.js"></script>
+    <script src="../webpages/JavaScript/jquery-3.7.1.min.js"></script>
+</body>
+<p class="subtitle"><a href="./database/waitingList.php">View Waiting List</a></p>
+
+</html>

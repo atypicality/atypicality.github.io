@@ -1,0 +1,130 @@
+@font-face {
+    font-family: bungee;
+    src: url(../Fonts/BungeeLayers-Regular.otf);
+}
+
+h1 {
+    font-size: 70px;
+    text-shadow: 4px 4px 5px rgb(0, 225, 255);
+    border-color: rgba(255, 0, 68, 0.7);
+    border-width: 5px;
+    border-style: solid;
+    margin-top: 70px;
+}
+
+.question {
+    text-align: left;
+    width: 900px;
+    font-size: 45px;
+    text-shadow: 2px 2px 5px rgb(102, 0, 255);
+    margin: auto;
+}
+
+.answer {
+    font-size: 20px;
+    text-shadow: 2px 2px 5px rgb(102, 0, 255);
+    margin-top: 5px;
+    margin-bottom: 20px;
+    /*display: none;*/
+    text-align: left;
+    width: 900px;
+    margin-left: 310px;
+}
+
+.answer a:hover {
+    color: rgb(17, 111, 243);
+}
+
+.answer a {
+    color: #23a7ee;
+}
+
+.questionTitle {
+    text-align: left;
+    width: 900px;
+    font-size: 65px;
+    text-shadow: 4px 4px 5px rgb(0, 225, 255);
+    border-bottom: 5px solid rgb(124, 94, 245);
+    color: rgb(255, 255, 255);
+    height: 130px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+
+.plusButton {
+    background: none;
+    border: none;
+    color: white;
+    float: right;
+    margin-top: 12px;
+    font-size: 50px;
+    text-shadow: 2px 2px 5px rgb(102, 0, 255);
+    font-family: bungee;
+    height: 10px;
+    display: inline;
+}
+
+.plusButton:hover {
+    color: rgb(181, 181, 181);
+}
+
+.divider {
+    border-color: rgba(255, 0, 68, 0.7);
+    width: 900px;
+    height: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -30px;
+    margin-bottom: 50px;
+}
+
+#nav ul {
+    list-style-type: none;
+    margin-top: -74px;
+    padding: 0;
+    overflow: hidden;
+    position: fixed;
+    background-color: rgb(20,20,20);
+    height: 60px;
+    width: 99%
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+    margin: -13.5px;
+}
+
+a:hover img {
+    opacity: 0.5;
+}
+
+li {
+    font-family: bungee;
+}
+
+.logo a:hover {
+    background-color: rgb(20,20,20);
+    color: white;
+}
+  
+.rightBar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    text-shadow: 2px 2px 5px rgb(102, 0, 255);
+}
+  
+.rightBar a:hover {
+    background-color: #1e1d1d;
+    color: rgb(211, 207, 207);
+}
+
+.rightBar a.active {
+    text-decoration: underline;
+    text-decoration-color:rgb(31, 229, 235);
+    text-shadow: 2px 2px 5px rgb(31, 229, 235);
+}

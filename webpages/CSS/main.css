@@ -1,0 +1,58 @@
+@font-face {
+    font-family: bungee;
+    src: url(../Fonts/BungeeLayers-Regular.otf);
+}
+
+ul {
+    list-style-type: none;
+    margin-top: -15px;
+    padding: 0;
+    overflow: hidden;
+}
+
+li.rightBar {
+    float: right;
+}
+
+li.logo {
+    float: left;
+    font-size: 25px;
+    text-shadow: 2px 2px 5px rgb(102, 0, 255);
+}
+
+li {
+    font-family: bungee;
+}
+  
+li a {
+    display: block;
+    color: #eaeaea;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    text-shadow: 2px 2px 5px rgb(102, 0, 255);
+}
+  
+li a:hover {
+    background-color: #1e1d1d;
+    color: rgb(211, 207, 207);
+}
+
+li a.active {
+    text-decoration: underline;
+    text-decoration-color:rgb(31, 229, 235);
+    text-shadow: 2px 2px 5px rgb(31, 229, 235);
+}
+
+#EighthWonderNavBar {
+    height: 50px;
+    width: 50px;
+    margin-top: 5px;
+}
+
+body {
+    background: rgb(20,20,20);
+    font-family: bungee;
+    color: #eaeaea;
+    text-align: center;
+}
