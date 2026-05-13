@@ -1,0 +1,28 @@
+head {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+
+body {
+    background-color: #fbf8ee;
+    color: #000000;
+    font-family: Arial, sans-serif;
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+    padding: 20px;
+}
+
+.sidebar {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+}
+
+.main {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
