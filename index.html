@@ -3,6 +3,8 @@
 
 <head>
    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="index.css">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>
@@ -12,80 +14,150 @@
 </head>
 
 <body>
-
     <div id="sidebar">
-        <h4>Dathan Lang</h4>
+        <div class="sidebar-header">
+            <h4>Dathan Lang</h4>
+            <label class="switch">
+                <input id="dark-toggle" type="checkbox" aria-label="Toggle dark mode">
+                <span class="slider"></span>
+            </label>
+        </div>
         <hr>
         <div id="about-me">
             <h3><strong>About Me</strong></h3>
             <p>I'm Dathan, software engineer, jazz pianist, and Tournament Scrabble enthusiast. Welcome to my site!</p>
-            <!-- take inspiration and add light mode/dark mode toggle here -->
         </div>
         <hr>
-        <div id="navigation">
-        <ul>    
-            <li><a href="#">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+            <div id="navigation">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="scrabble.html">Scrabble</a></li>
+                <li><a href="contacts.html">Contact</a></li>
+            </ul>
+        </div>
         <hr>
         <div id="socials">
             <h3><strong>Stay Connected</strong></h3>
             <ul>
-                <li><a href="https://woogles.io/profile/dathanl">Woogles</a></li>
-                <li><a href="https://linkedin.com/in/dathanlang">LinkedIn</a></li>
-                <li><a href="https://github.com/atypicality">GitHub</a></li>
+                <li><a href="https://woogles.io/profile/dathanl" aria-label="Woogles profile">
+                    <!-- simple globe SVG -->
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15 15 0 0 1 0 20"></path></svg>
+                    Woogles
+                </a></li>
+                <li><a href="https://linkedin.com/in/dathanlang" aria-label="LinkedIn">
+                    <!-- briefcase SVG -->
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 3h-8v4h8z"></path></svg>
+                    LinkedIn
+                </a></li>
+                <li><a href="https://github.com/atypicality" aria-label="GitHub">
+                    <!-- GitHub octopus mark -->
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.14-1.11-1.44-1.11-1.44-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.83-2.34 4.68-4.57 4.92.36.31.68.93.68 1.88v2.79c0 .26.18.58.69.48C19.14 20.16 22 16.42 22 12c0-5.52-4.48-10-10-10z"></path></svg>
+                    GitHub
+                </a></li>
             </ul>
         </div>
     </div>
 
-    </div>
     <div id="main-content">
-        <div id="introduction">
-            <h1>✌️Hey, Dathan Here!</h1>  
-            <p> I'm a rising junior at RPI, studying CS & ITWS. I ... </p>
-            <!-- <img src="" alt="Dathan's Profile Picture" width="200"> -->
-            <button onclick="location.href='contact.html'">About Me</button> <!-- Make contact page later -->
-            <button onclick="location.href='resume.html'">Resume</button> <!-- Make resume page later -->
-        </div>
+        <section class="hero">
+            <div class="hero-left">
+                <h1>✌️ 🎹 🧩 Hey — I'm Dathan</h1>
+                <p class="lead">I'm a rising junior at RPI (CS & ITWS). I love building tools, improvising jazz, and strategizing Scrabble. Let's create something great together.</p>
 
-        <div id="latest-projects">
-            <h2>Latest Projects</h2> <!-- might make some cool visuals here-->
-            <!-- <ul>
-                <li><a href="projects.html#project1">Project 1: [Project Name]</a></li>
-                <li><a href="projects.html#project2">Project 2: [Project Name]</a></li>
-                <li><a href="projects.html#project3">Project 3: [Project Name]</a></li>
-            </ul> -->
+                <!-- moved rack to portrait column to sit under portrait -->
 
+                <div class="hero-ctas">
+                    <button onclick="location.href='scrabble.html'">Want to play me?</button>
+                    <button onclick="location.href='resume.html'">Resume</button>
+                </div>
+            </div>
+
+            <aside class="hero-right">
+                <!-- Add your portrait to images/portrait.jpg or update the src to your preferred image. -->
+                <div class="portrait-frame">
+                    <img src="images/Dathan_Lang_Cover.jpg" alt="Portrait of Dathan" />
+                </div>
+
+                <div class="rack-wrap">
+                    <div class="rack-decor" aria-hidden="true"></div>
+                    <div class="scrabble-rack" aria-label="Name scrabble rack">
+                        <!-- Tiles arranged like a real Scrabble rack. data-href remains for click behavior. -->
+                        <div class="tile" role="button" tabindex="0" data-href="projects.html" data-letter="D" data-score="2"><span class="letter">D</span><span class="score">2</span></div>
+                        <div class="tile" role="button" tabindex="0" data-href="projects.html" data-letter="A" data-score="1"><span class="letter">A</span><span class="score">1</span></div>
+                        <div class="tile" role="button" tabindex="0" data-href="projects.html" data-letter="T" data-score="1"><span class="letter">T</span><span class="score">1</span></div>
+                        <div class="tile" role="button" tabindex="0" data-href="projects.html" data-letter="H" data-score="4"><span class="letter">H</span><span class="score">4</span></div>
+                        <div class="tile" role="button" tabindex="0" data-href="projects.html" data-letter="A" data-score="1"><span class="letter">A</span><span class="score">1</span></div>
+                        <div class="tile" role="button" tabindex="0" data-href="projects.html" data-letter="N" data-score="1"><span class="letter">N</span><span class="score">1</span></div>
+                    </div>
+                </div>
+            </aside>
+        </section>
+
+        <section id="latest-projects">
+            <h2>Latest Projects</h2>
             <div id="project-list">
                 <div class="project-item">
-                    <h3><a href="projects.html#project1">Project 1: [ByteBites]</a></h3>
+                    <h3><a href="projects.html#project1">🔍 ByteBites</a></h3>
                     <p>Brief description of Project 1...</p>
                 </div>
                 <div class="project-item">
-                    <h3><a href="projects.html#project2">Project 2: [TrailMate]</a></h3>
+                    <h3><a href="projects.html#project2">🥾 TrailMate</a></h3>
                     <p>Brief description of Project 2...</p>
                 </div>
                 <div class="project-item">
-                    <h3><a href="projects.html#project3">Project 3: [TaskKun AI]</a></h3>
+                    <h3><a href="projects.html#project3">🤖 TaskKun AI</a></h3>
                     <p>Brief description of Project 3...</p>
                 </div>
-                <div class="project-item">
-                    <h3><a href="projects.html#project4">Project 4: [Scrabble Research Project]</a></h3>
-                    <p>Brief description of Project 4...</p>
-                </div>
             </div>
-        </div>
+        </section>
 
-        <div id="music">
-            <!-- add section about sheet music i had written on muse score, maybe put some cool stuff-->
-        </div>
-
-        <footer> 
+        <footer>
             <p>&copy; 2026 Dathan Lang. All rights reserved.</p>
         </footer>
-
     </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Animate project items on page load
+        const projectItems = document.querySelectorAll('.project-item');
+        projectItems.forEach((item, i) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+            }, i * 120);
+        });
+
+        // Scrabble tiles
+        const tiles = document.querySelectorAll('.scrabble-rack .tile');
+        tiles.forEach((tile, i) => {
+            tile.style.setProperty('--delay', (i * 120) + 'ms');
+            tile.addEventListener('click', () => {
+                const href = tile.dataset.href;
+                if (href) location.href = href;
+            });
+            tile.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') tile.click();
+            });
+        });
+
+        // Dark mode toggle with localStorage
+        const toggle = document.getElementById('dark-toggle');
+        const root = document.documentElement;
+        const saved = localStorage.getItem('theme');
+        if (saved === 'dark') {
+            root.classList.add('dark');
+            toggle.checked = true;
+        }
+        toggle.addEventListener('change', () => {
+            root.classList.toggle('dark');
+            localStorage.setItem('theme', toggle.checked ? 'dark' : 'light');
+        });
+    });
+    </script>
 
 </body>
 
