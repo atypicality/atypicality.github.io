@@ -5,12 +5,13 @@
    <meta charset="utf-8">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;600;800&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="index.css">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>
       Dathan Lang's Website | Home
    </title>
-   <!-- <link rel="icon" type="image/x-icon" href=""> -->
+   <link rel="icon" type="image/x-icon" href="">
 </head>
 
 <body>
@@ -25,15 +26,43 @@
         <hr>
         <div id="about-me">
             <h3><strong>About Me</strong></h3>
-            <p>I'm Dathan, software engineer, jazz pianist, and Tournament Scrabble enthusiast. Welcome to my site!</p>
+            <p> 👋 Hey, I'm Dathan, and welcome to my Site! I'm an aspiring software engineer with a focus for web dev and AI/ML.</p>
         </div>
         <hr>
             <div id="navigation">
+            <h3><strong>Navigation</strong></h3>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="scrabble.html">Scrabble</a></li>
-                <li><a href="contacts.html">Contact</a></li>
+                <li>
+                    <a href="#"> 
+                        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 10.5 12 3l9 7.5"/>
+                            <path d="M5 9.5V21h14V9.5"/>
+                        </svg>Home
+                    </a>
+                </li>
+                <li>
+                    <a href="projects.html">
+                        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8">
+                            <rect x="3" y="3" width="7" height="7" rx="1"/>
+                            <rect x="14" y="3" width="7" height="7" rx="1"/>
+                            <rect x="3" y="14" width="7" height="7" rx="1"/>
+                            <rect x="14" y="14" width="7" height="7" rx="1"/>
+                        </svg>Projects
+                    </a>
+                </li>
+                <li>
+                    <a href="contacts.html">
+                        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8">
+                            <path d="M4 7h16M4 12h16M4 17h16"/>
+                        </svg>Contact
+                    </a>
+                </li>
             </ul>
         </div>
         <hr>
@@ -45,7 +74,7 @@
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15 15 0 0 1 0 20"></path></svg>
                     Woogles
                 </a></li>
-                <li><a href="https://linkedin.com/in/dathanlang" aria-label="LinkedIn">
+                <li><a href="https://www.linkedin.com/in/dathanl/" aria-label="LinkedIn">
                     <!-- briefcase SVG -->
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 3h-8v4h8z"></path></svg>
                     LinkedIn
@@ -62,10 +91,36 @@
     <div id="main-content">
         <section class="hero">
             <div class="hero-left">
-                <h1>✌️ 🎹 🧩 Hey — I'm Dathan</h1>
-                <p class="lead">I'm a rising junior at RPI (CS & ITWS). I love building tools, improvising jazz, and strategizing Scrabble. Let's create something great together.</p>
+                <div class="dictionary-card">
+                    <h1>DATHAN <span class="tile-count">(6)</span></h1>
 
-                <!-- moved rack to portrait column to sit under portrait -->
+                    <div class="dictionary-entry">
+                        <span class="pronunciation">/ˈdeɪθən/</span>
+                        <span class="part-of-speech">proper noun</span>
+
+                        <ol>
+                            <li>
+                                A CS and ITWS student studying @ RPI with a passion for web development, AI/ML, and all things tech.
+                            </li>
+
+                            <li>
+                                Jazz pianist and member of 
+                                <a href="https://www.instagram.com/were.totally.confused/" target="_blank" rel="noopener noreferrer">
+                                    Totally Confused
+                                </a>, who also is a competitive <a href="https://www.cross-tables.com/results.php?playerid=27205" target="_blank" rel="noopener noreferrer">
+                                    Scrabble player
+                                </a> with a penchant for obscure words and strategy.
+                            </li>
+                            <li>
+                                Not Nathan. 🫠
+                            </li>
+                        </ol>
+                    </div>
+
+                    <p class="subtitle">
+                        CS & ITWS @ Rensselaer Polytechnic Institute
+                    </p>
+                </div>
 
                 <div class="hero-ctas">
                     <button onclick="location.href='scrabble.html'">Want to play me?</button>
@@ -80,15 +135,13 @@
                 </div>
 
                 <div class="rack-wrap">
-                    <div class="rack-decor" aria-hidden="true"></div>
-                    <div class="scrabble-rack" aria-label="Name scrabble rack">
-                        <!-- Tiles arranged like a real Scrabble rack. data-href remains for click behavior. -->
-                        <div class="tile" role="button" tabindex="0" data-href="projects.html" data-letter="D" data-score="2"><span class="letter">D</span><span class="score">2</span></div>
-                        <div class="tile" role="button" tabindex="0" data-href="projects.html" data-letter="A" data-score="1"><span class="letter">A</span><span class="score">1</span></div>
-                        <div class="tile" role="button" tabindex="0" data-href="projects.html" data-letter="T" data-score="1"><span class="letter">T</span><span class="score">1</span></div>
-                        <div class="tile" role="button" tabindex="0" data-href="projects.html" data-letter="H" data-score="4"><span class="letter">H</span><span class="score">4</span></div>
-                        <div class="tile" role="button" tabindex="0" data-href="projects.html" data-letter="A" data-score="1"><span class="letter">A</span><span class="score">1</span></div>
-                        <div class="tile" role="button" tabindex="0" data-href="projects.html" data-letter="N" data-score="1"><span class="letter">N</span><span class="score">1</span></div>
+                     <div class="scrabble-rack">
+                        <div class="tile" role="button" tabindex="0" data-href="" data-letter="D" data-score="2"><span class="letter">D</span><span class="score">2</span></div>
+                        <div class="tile" role="button" tabindex="0" data-href="" data-letter="A" data-score="1"><span class="letter">A</span><span class="score">1</span></div>
+                        <div class="tile" role="button" tabindex="0" data-href="" data-letter="T" data-score="1"><span class="letter">T</span><span class="score">1</span></div>
+                        <div class="tile" role="button" tabindex="0" data-href="" data-letter="H" data-score="4"><span class="letter">H</span><span class="score">4</span></div>
+                        <div class="tile" role="button" tabindex="0" data-href="" data-letter="A" data-score="1"><span class="letter">A</span><span class="score">1</span></div>
+                        <div class="tile" role="button" tabindex="0" data-href="" data-letter="N" data-score="1"><span class="letter">N</span><span class="score">1</span></div>
                     </div>
                 </div>
             </aside>
@@ -98,16 +151,16 @@
             <h2>Latest Projects</h2>
             <div id="project-list">
                 <div class="project-item">
-                    <h3><a href="projects.html#project1">🔍 ByteBites</a></h3>
-                    <p>Brief description of Project 1...</p>
+                    <h3><a href="https://bytebites.tech/"> <img src="images/ByteBiteLogo.png" alt="ByteBites img">ByteBites</a></h3>
+                    <p>A web app to help students meal plan and track their nutrition with campus dining halls, taking into account dietary restrictions and optimality.</p>
                 </div>
                 <div class="project-item">
-                    <h3><a href="projects.html#project2">🥾 TrailMate</a></h3>
-                    <p>Brief description of Project 2...</p>
+                    <h3><a href="https://www.trailmate.tech/"> <img src="images/trailmate.png" alt="TrailMate img">TrailMate</a></h3>
+                    <p>An augmented reality app to guide students along safe and accessible campus routes while matching them with classmates for barrier-free journeys.</p>
                 </div>
                 <div class="project-item">
-                    <h3><a href="projects.html#project3">🤖 TaskKun AI</a></h3>
-                    <p>Brief description of Project 3...</p>
+                    <h3><a href="https://github.com/dwskcw/AQC-S26"> <img src="images/qiskitLogo.png" alt="FRED Unemployment img">FRED Quantum ML </a></h3>
+                    <p>A quantum machine learning simulation to predict National Unemployment data from the Federal Reserve Bank of ST Louis using Variational Quantum Classifiers.</p>
                 </div>
             </div>
         </section>
