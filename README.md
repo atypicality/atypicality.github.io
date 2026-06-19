@@ -8,3 +8,5 @@ Personal Website, please don't copy without permission...
 
 
 //consider looking at d3 graphs
+
+// add text to speech feature to pronoun my name, or just do it myself and have it be a recording
