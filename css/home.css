@@ -1,0 +1,431 @@
+/* --------- Hero Section Home --------- */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 32px;
+    max-width: 1300px;
+    margin: 0 auto 48px auto;
+}
+
+.hero-left {
+    flex: 1;
+    max-width: 620px;
+    margin-top: 0;
+}
+
+.hero-right {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    margin-top: 0;
+}
+
+.hero-ctas {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.hero-ctas button {
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(253, 160, 133, 0.15);
+    transition: all 0.25s ease; 
+}
+
+.hero-ctas button:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.20),
+        0 0 0 2px rgba(255, 255, 255, 0.15),
+        0 0 20px rgba(246, 211, 101, 0.35);
+}
+
+/* ---------- Dictionary Hero ---------- */
+
+.dictionary-card {
+    max-width: 680px;
+    margin-top: 20px;
+}
+
+.dictionary-card h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(3.2rem, 6vw, 4rem);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin: 0 0 12px 0;
+}
+
+.dictionary-entry a {
+    text-decoration: none;
+    color: var(--text);
+    border-bottom: 1px dotted var(--muted);
+    transition: 0.2s;
+}
+
+.dictionary-entry a:hover {
+    border-bottom: 1px solid var(--accent-1);
+    color: var(--accent-1);
+}
+
+.dictionary-entry {
+    margin-top: 12px;
+    padding-left: 18px;
+    border-left: 2px solid var(--accent-1);
+}
+
+.dictionary-entry ol {
+    margin: 12px 0 0;
+    padding-left: 20px;
+}
+
+.dictionary-entry li {
+    font-family: "Merriweather", Georgia, serif;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    margin-bottom: 12px;
+}
+
+/* ----------- Pronunciation ----------- */
+
+.word-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pronunciation-button {
+    width: 38px;
+    height: 38px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    border: 1px solid rgba(246, 211, 101, 0.18);
+
+    cursor: pointer;
+    color: var(--accent-1);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.9),
+            rgba(246,244,239,0.95)
+        );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.9),
+        0 2px 8px rgba(11,13,20,0.06);
+
+    transition:
+        transform .2s ease,
+        color .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.pronunciation-button:hover {
+    transform: translateY(-2px);
+
+    color: var(--accent-2);
+    border-color: rgba(253,160,133,0.35);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.9),
+        0 8px 20px rgba(246,211,101,0.12),
+        0 0 0 4px rgba(246,211,101,0.08);
+}
+
+.pronunciation-button:active {
+    transform: translateY(0) scale(0.96);
+}
+
+.pronunciation-button svg,
+.pronunciation-button span {
+    font-size: 1rem;
+    transition: transform .2s ease;
+}
+
+.pronunciation-button:hover svg,
+.pronunciation-button:hover span {
+    transform: scale(1.08);
+}
+
+:root.dark .pronunciation-button {
+    background:
+        linear-gradient(
+            180deg,
+            #3b3f45,
+            #2f3136
+        );
+
+    border-color: rgba(114,137,218,0.2);
+
+    color: var(--accent-1);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        0 4px 12px rgba(0,0,0,0.25);
+}
+
+:root.dark .pronunciation-button:hover {
+    border-color: var(--accent-1);
+
+    box-shadow:
+        0 8px 24px rgba(114,137,218,0.18),
+        0 0 0 4px rgba(114,137,218,0.08);
+}
+
+/* ----- Other Dictionary Elements ----- */
+
+.pronunciation {
+    display: inline;
+    font-family: "Source Serif 4", serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--muted);
+}
+
+.part-of-speech {
+    display: inline;
+    margin-left: 12px;
+    font-family: "Source Serif 4", serif;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--accent-1);
+}
+
+.portrait-frame {
+    margin-top: 30px;
+    margin-bottom: -10px;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 12px 40px var(--shadow), inset 0 0 0 2px rgba(246, 211, 101, 0.3);
+    background: linear-gradient(135deg, #fff, #f6f4ef);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+:root.dark .portrait-frame {
+    background: linear-gradient(135deg, #1a1d21, #0f1115);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), inset 0 0 0 2px rgba(114, 137, 218, 0.2);
+}
+
+.portrait-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+}
+
+/* ----------- Scrabble Rack ------------*/
+
+.rack-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+.scrabble-rack {
+    display: flex;
+    gap: 10px;
+    padding: 16px;
+    border-radius: 10px;
+    align-items: flex-end;
+    position: relative;
+    z-index: 2;
+    background: transparent;
+}
+
+.scrabble-rack::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -12px;
+    height: 46px;
+    background: linear-gradient(180deg, #8b7355 0%, #6b5740 50%, #7a6449 100%);
+    border-radius: 8px;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2), inset 0 -2px 6px rgba(255, 255, 255, 0.08), 0 8px 16px rgba(0, 0, 0, 0.15);
+    z-index: 0;
+}
+
+:root.dark .scrabble-rack::before {
+    background: linear-gradient(180deg, #4a3f35 0%, #4f4036 50%, #3a3228 100%);
+}
+
+.tile-count {
+    font-family: Inter, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--muted);
+    vertical-align: super;
+    margin-left: 6px;
+}
+
+.tile {
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(180deg, #fdf6e3, #efe6d1);
+    border-radius: 6px;
+    border: 1.5px solid #c9b89e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    user-select: none;
+    font-family: "Merriweather", serif;
+    color: #241f16;
+    font-weight: 700;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    transform-origin: center bottom;
+
+    /* NEW */
+    --tilt: 0deg;
+    --lift: 0px;
+    transform: rotateZ(var(--tilt)) translateY(var(--lift));
+}
+
+.tile:nth-child(odd) {
+    --tilt: -4deg;
+    --lift: 2px;
+}
+
+.tile:nth-child(even) {
+    --tilt: 4deg;
+    --lift: 0px;
+}
+
+.tile:hover {
+    --lift: -6px;
+    --tilt: 0deg;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+    outline: 2px solid var(--accent-1);
+    outline-offset: 2px;
+}
+
+:root.dark .tile {
+    background: linear-gradient(180deg, #e8dfca, #d9cfb8);
+    border-color: #8b7d6d;
+}
+
+.tile .letter {
+    font-size: 24px;
+    line-height: 1;
+}
+
+.tile .score {
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    font-size: 10px;
+    color: #6b6b6b;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 1px 3px;
+    border-radius: 3px;
+    line-height: 1;
+}
+
+/* ------------- Projects --------------*/
+
+#latest-projects {
+    margin: 16px 0 16px 0;
+}
+
+#latest-projects h2 {
+    margin: 0 0 24px 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+#project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+.project-item {
+    background: linear-gradient(135deg, var(--bg-secondary), rgba(255, 255, 255, 0.05));
+    padding: 20px;
+    border-radius: 12px;
+    border: 1.5px solid rgba(107, 107, 107, 0.15);
+    box-shadow: 0 6px 20px var(--shadow);
+    
+    /* ADD THESE LINES */
+    opacity: 0;
+    animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transition: all 0.3s ease;
+}
+
+.project-item:nth-child(1) { animation-delay: 0.1s; }
+.project-item:nth-child(2) { animation-delay: 0.2s; }
+.project-item:nth-child(3) { animation-delay: 0.3s; }
+.project-item:nth-child(4) { animation-delay: 0.4s; }
+
+.project-item h3 img {
+    height: 3em;           
+    width: auto;             
+    vertical-align: middle;  
+    margin-right: 8px;      
+}
+
+:root.dark .project-item {
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.project-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: var(--accent-1);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, rgba(246, 211, 101, 0.08), rgba(253, 160, 133, 0.08));
+}
+
+:root.dark .project-item:hover {
+    border-color: var(--accent-1);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    background: linear-gradient(135deg, rgba(114, 137, 218, 0.08), rgba(67, 181, 129, 0.08));
+}
+
+.project-item h3 {
+    margin: 0 0 12px 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.project-item a {
+    color: var(--accent-1);
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.project-item a:hover {
+    text-decoration: underline;
+}
+
+.project-item p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}

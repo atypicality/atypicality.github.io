@@ -1,0 +1,216 @@
+:root {
+    --bg: #fbf8ee;
+    --bg-secondary: #fffdf8;
+    --muted: #6b6b6b;
+    --text: #0b0d14;
+    --accent-1: #f6d365;
+    --accent-2: #fda085;
+    --shadow: rgba(11, 13, 20, 0.06);
+}
+
+:root.dark {
+    --bg: #36393f;
+    --bg-secondary: #2f3136;
+    --muted: #b9bbbe;
+    --text: #dcddde;
+    --accent-1: #7289da;
+    --accent-2: #43b581;
+    --shadow: rgba(0, 0, 0, 0.3);
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: linear-gradient(180deg, var(--bg), #fffefa 60%);
+    background-attachment: fixed; /* Prevents gradient from cutting off on long pages */
+    color: var(--text);
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 40px;
+    min-height: 100vh;
+    padding: 20px 40px 30px 40px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+:root.dark body {
+    background: linear-gradient(180deg, var(--bg), #2f3136 60%);
+    background-attachment: fixed;
+}
+
+/* Theme toggle switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 42px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ccc;
+    transition: 0.3s;
+    border-radius: 999px;
+}
+
+.slider:before {
+    content: "☀️";
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 2px;
+    top: 2px;
+    background: white;
+    border-radius: 50%;
+    transition: 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+}
+
+.switch input:checked + .slider {
+    background: var(--accent-1);
+}
+
+.switch input:checked + .slider:before {
+    content: "🌙";
+    transform: translateX(18px);
+}
+
+/* Sidebar */
+#sidebar {
+    padding: 22px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px var(--shadow);
+    height: fit-content;
+    position: sticky;
+    top: 30px;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+#sidebar h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid rgba(107, 107, 107, 0.2);
+    margin: 18px 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 12px;
+}
+
+.spaced-list a {
+    text-decoration: none;
+    color: var(--text);
+    border-bottom: 1px dotted var(--muted);
+    transition: 0.2s;
+}
+
+.spaced-list a:hover{
+    border-bottom: 1px solid var(--accent-1);
+    color: var(--accent-1);
+}
+
+#socials a, #navigation a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text);
+    text-decoration: none;
+    transition: 0.2s;
+    padding: 4px 0;
+}
+
+#socials a:hover, #navigation a:hover {
+    color: var(--accent-1);
+}
+
+#socials svg {
+    flex-shrink: 0;
+}
+
+/* Main content */
+#main-content {
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Ensures footer drops to the bottom properly */
+}
+
+.subtitle {
+    margin-top: 18px;
+    font-family: Inter, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.subtitle a {
+  color: var(--accent-1); 
+  text-decoration: underline; 
+}
+
+.subtitle a:hover {
+  color: var(--accent-2);
+  text-decoration: none;
+}
+
+/* Footer */
+footer {
+    margin-top: auto; /* Pushes the footer to the bottom of #main-content */
+    padding-top: 20px;
+    border-top: 1px solid rgba(107, 107, 107, 0.15);
+    color: var(--muted);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* --- Animations ---   (SHOULD MOVE TO ITS OWN FILE*/   
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Shortened distance for a snappier feel */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

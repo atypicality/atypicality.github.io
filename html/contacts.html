@@ -5,15 +5,17 @@
     <meta charset="utf-8">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/resume.css"> 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contact | Dathan Lang</title>
+    <link id="favicon" rel="icon" type="image/x-icon" href="../resources/images/siteIconClear.png">
 </head>
 
 <body>
     <div id="sidebar">
         <div class="sidebar-header">
-            <h4>Dathan Lang</h4>
+            <h4><a href="index.html">Dathan Lang</a></h4>
             <label class="switch">
                 <input id="dark-toggle" type="checkbox" aria-label="Toggle dark mode">
                 <span class="slider"></span>
@@ -95,7 +97,7 @@
             <h2>🤪 Contact Info</h2>
             <div class="resume-item card">
                 <ul class="resume-list">
-                    <li><strong>Email:</strong> <a href="mailto:langd4@rpi.edu">langd4@rpi.edu</a></li>
+                    <li><strong>Email:</strong> <a href="mailto:langd4@rpi.edu">langd4@rpi.edu</a> or <a href="mailto:dathan.lang@gmail.com">dathan_lang@outlook.com</a></li>
                     <li><strong>Phone:</strong> <a href="tel:(267) 471-5515">(267) 471-5515</a></li>
                     <li><strong>Instagram:</strong> <a href="https://instagram.com/dathan.lang" target="_blank">@dathan.lang</a></li>
                 </ul>
@@ -129,20 +131,6 @@
         </footer>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggle = document.getElementById('dark-toggle');
-            const root = document.documentElement;
-            const saved = localStorage.getItem('theme');
-            if (saved === 'dark') {
-                root.classList.add('dark');
-                toggle.checked = true;
-            }
-            toggle.addEventListener('change', () => {
-                root.classList.toggle('dark');
-                localStorage.setItem('theme', toggle.checked ? 'dark' : 'light');
-            });
-        });
-    </script>
+    <script src="../js/index.js"></script>
 </body>
 </html>

@@ -5,15 +5,17 @@
     <meta charset="utf-8">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/resume.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dathan Lang | Resume</title>
+    <link id="favicon" rel="icon" type="image/x-icon" href="../resources/images/siteIconClear.png">
 </head>
 
 <body>
     <div id="sidebar">
         <div class="sidebar-header">
-            <h4>Dathan Lang</h4>
+            <h4><a href="index.html">Dathan Lang</a></h4>
             <label class="switch">
                 <input id="dark-toggle" type="checkbox" aria-label="Toggle dark mode">
                 <span class="slider"></span>
@@ -74,7 +76,7 @@
     <div id="main-content">
         <section class="page-header">
             <h1>📄 Resume</h1>
-            <p class="subtitle">Click <a href="images/resume_lang.pdf" target="_blank" rel="noopener noreferrer">here</a> for pdf view of resume</p>
+            <p class="subtitle">Click <a href="../resources/pdf/resume_lang.pdf" target="_blank" rel="noopener noreferrer">here</a> for pdf view of resume</p>
         </section>
 
         <section class="resume-section">
@@ -185,31 +187,16 @@
             <div class="resume-item card">
                 <ul class="resume-list" style="margin-top: 0;">
                     <li><strong>Awards:</strong> HenHack Best Use of Snowflake AI (2026), HackRPI Best Data Science Hack (2025), Rensselaer Medalist (2024). 2x U.S. Candidate at World Youth Scrabble Championship (2022-2023)</li>
-                    <li><strong>Extracurriculars:</strong> Security Coordinator for Rensselaer Music Association,8th Street Jazz Band (Lead Pianist), Chinese American Student Association (CASA) Performance Chair, Google Developer Groups.</li>
+                    <li><strong>Extracurriculars:</strong> Security Coordinator for Rensselaer Music Association (RMA), 8th Street Jazz Band (Lead Pianist), Chinese American Student Association (CASA) Performance Chair, Google Developer Groups (GDG).</li>
                     <li><strong>Volunteer Work:</strong> SASE Mentor, Data Structures TA, Community Jazz Jam Coordinator</li>
                 </ul>
-            </div>
+            </div> 
         </section>
 
         <footer>
             <p>&copy; 2026 Dathan Lang. All rights reserved.</p>
         </footer>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggle = document.getElementById('dark-toggle');
-            const root = document.documentElement;
-            const saved = localStorage.getItem('theme');
-            if (saved === 'dark') {
-                root.classList.add('dark');
-                toggle.checked = true;
-            }
-            toggle.addEventListener('change', () => {
-                root.classList.toggle('dark');
-                localStorage.setItem('theme', toggle.checked ? 'dark' : 'light');
-            });
-        });
-    </script>
+    <script src="../js/index.js"></script>
 </body>
 </html>

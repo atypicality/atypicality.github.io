@@ -6,12 +6,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;600;800&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="index.css">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title>
-      Dathan Lang's Website | Home
-   </title>
-   <link rel="icon" type="image/x-icon" href="">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        Dathan Lang's Website | Home
+    </title>
+    <link id="favicon" rel="icon" type="image/x-icon" href="../resources/images/siteIconClear.png">
 </head>
 
 <body>
@@ -97,7 +98,7 @@
                         <button
                             class="pronunciation-button"
                             aria-label="Hear pronunciation of Dathan"
-                            onclick="new Audio('DathanPronunciation.mp3').play()">
+                            onclick="new Audio('../resources/audio/DathanPronunciation.mp3').play()">
                             <span>🔊</span>
                         </button>
                     </h1>
@@ -138,7 +139,7 @@
             <aside class="hero-right">
                 <!-- Add your portrait to images/portrait.jpg or update the src to your preferred image. -->
                 <div class="portrait-frame">
-                    <img src="images/Dathan_Lang_Cover.jpg" alt="Portrait of Dathan" />
+                    <img src="../resources/images/Dathan_Lang_Cover.jpg" alt="Portrait of Dathan" />
                 </div>
 
                 <div class="rack-wrap">
@@ -158,15 +159,15 @@
             <h2>Latest Projects</h2>
             <div id="project-list">
                 <div class="project-item">
-                    <h3><a href="https://bytebites.tech/"> <img src="images/ByteBiteLogo.png" alt="ByteBites img">ByteBites</a></h3>
+                    <h3><a href="https://bytebites.tech/"> <img src="../resources/images/ByteBiteLogo.png" alt="ByteBites img">ByteBites</a></h3>
                     <p>A web app to help students meal plan and track their nutrition with campus dining halls, taking into account dietary restrictions and optimality.</p>
                 </div>
                 <div class="project-item">
-                    <h3><a href="https://www.trailmate.tech/"> <img src="images/trailmate.png" alt="TrailMate img">TrailMate</a></h3>
+                    <h3><a href="https://www.trailmate.tech/"> <img src="../resources/images/trailmate.png" alt="TrailMate img">TrailMate</a></h3>
                     <p>An augmented reality app to guide students along safe and accessible campus routes while matching them with classmates for barrier-free journeys.</p>
                 </div>
                 <div class="project-item">
-                    <h3><a href="https://github.com/dwskcw/AQC-S26"> <img src="images/qiskitLogo.png" alt="FRED Unemployment img">FRED Quantum ML </a></h3>
+                    <h3><a href="https://github.com/dwskcw/AQC-S26"> <img src="../resources/images/qiskitLogo.png" alt="FRED Unemployment img">FRED Quantum ML </a></h3>
                     <p>A quantum machine learning simulation to predict National Unemployment data from the Federal Reserve Bank of ST Louis using Variational Quantum Classifiers.</p>
                 </div>
             </div>
@@ -176,49 +177,8 @@
             <p>&copy; 2026 Dathan Lang. All rights reserved.</p>
         </footer>
     </div>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Animate project items on page load
-        const projectItems = document.querySelectorAll('.project-item');
-        projectItems.forEach((item, i) => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(20px)';
-            setTimeout(() => {
-                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                item.style.opacity = '1';
-                item.style.transform = 'translateY(0)';
-            }, i * 120);
-        });
-
-        // Scrabble tiles
-        const tiles = document.querySelectorAll('.scrabble-rack .tile');
-        tiles.forEach((tile, i) => {
-            tile.style.setProperty('--delay', (i * 120) + 'ms');
-            tile.addEventListener('click', () => {
-                const href = tile.dataset.href;
-                if (href) location.href = href;
-            });
-            tile.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') tile.click();
-            });
-        });
-
-        // Dark mode toggle with localStorage
-        const toggle = document.getElementById('dark-toggle');
-        const root = document.documentElement;
-        const saved = localStorage.getItem('theme');
-        if (saved === 'dark') {
-            root.classList.add('dark');
-            toggle.checked = true;
-        }
-        toggle.addEventListener('change', () => {
-            root.classList.toggle('dark');
-            localStorage.setItem('theme', toggle.checked ? 'dark' : 'light');
-        });
-    });
-    </script>
-
+    <script src="../js/index.js"></script>
+    <script src="../js/home.js"></script>
 </body>
 
 </html>

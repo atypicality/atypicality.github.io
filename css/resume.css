@@ -1,0 +1,256 @@
+/* ------------ Page Header ------------ */
+.page-header {
+    margin-bottom: 32px;
+}
+
+.page-header h1 {
+    margin: 20 0 8px 0;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.page-header .subtitle {
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin: 0;
+}
+
+.resume-section {
+    margin: 24px 0;
+}
+
+.resume-section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: -30px;
+    color: var(--text);
+}
+
+.resume-section h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 16px 0 8px 0;
+    color: var(--text);
+}
+
+.resume-item {
+    margin-bottom: 16px;
+}
+
+.resume-item.card {
+    /* Subtle warm gradient using your accent variables */
+    background: linear-gradient(135deg, var(--bg-secondary) 40%, rgba(246, 211, 101, 0.04) 100%);
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid rgba(107, 107, 107, 0.15);
+    box-shadow: 0 4px 15px var(--shadow);
+    margin-bottom: 20px;
+    
+    /* Animation implementation */
+    opacity: 0;
+    animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.resume-item.card:nth-child(1) { animation-delay: 0.1s; }
+.resume-item.card:nth-child(2) { animation-delay: 0.2s; }
+.resume-item.card:nth-child(3) { animation-delay: 0.3s; }
+.resume-item.card:nth-child(4) { animation-delay: 0.4s; }
+
+:root.dark .resume-item.card {
+    background: linear-gradient(135deg, var(--bg-secondary) 40%, rgba(114, 137, 218, 0.05) 100%);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.resume-item.card:hover {
+    transform: translateY(-4px) scale(1.005);
+    border-color: var(--accent-1);
+    /* Soft colored glow based on your yellow accent */
+    box-shadow: 0 12px 28px rgba(246, 211, 101, 0.15); 
+    background: linear-gradient(135deg, var(--bg-secondary) 10%, rgba(246, 211, 101, 0.08) 100%);
+}
+
+:root.dark .resume-item.card:hover {
+    border-color: var(--accent-1);
+    /* Soft colored glow based on your blurple dark mode accent */
+    box-shadow: 0 12px 28px rgba(114, 137, 218, 0.2);
+    background: linear-gradient(135deg, var(--bg-secondary) 10%, rgba(114, 137, 218, 0.1) 100%);
+}
+
+.resume-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.resume-header h3 {
+    margin: 0;
+    flex: 1;
+}
+
+.resume-header .date {
+    color: var(--muted);
+    font-size: 0.95rem;
+    flex-shrink: 0;
+}
+
+.company {
+    color: var(--accent-1);
+    font-weight: 600;
+    margin: 4px 0 8px 0;
+}
+
+.resume-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 12px 0 0 0;
+}
+
+.resume-list li {
+    padding: 8px 12px 8px 28px; /* Added padding to hold the background highlight */
+    margin-left: -12px; /* Pull back to keep text aligned */
+    border-radius: 8px; /* Rounded highlight on hover */
+    position: relative;
+    color: var(--muted);
+    line-height: 1.6;
+    transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.resume-list li:hover {
+    color: var(--text);
+    background: rgba(107, 107, 107, 0.05); /* Subtle highlight behind the text row */
+    transform: translateX(4px); 
+}
+
+:root.dark .resume-list li:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.resume-list li:before {
+    content: "▹"; 
+    position: absolute;
+    left: 12px; /* Adjusted for the negative margin */
+    top: 8px;
+    color: var(--accent-1);
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.resume-list li:hover:before {
+    color: var(--accent-2); 
+    transform: scale(1.2); /* Slight pop on the arrow */
+}
+
+a {
+    color: var(--accent-1);
+    text-decoration: none; /* Removes the ugly default underline */
+    transition: 0.2s;
+}
+
+a:hover {
+    color: var(--accent-2);
+    text-decoration: underline;
+}
+
+#sidebar a {
+    color: var(--text); /* Keeps side links neutral */
+}
+
+#sidebar a:hover {
+    color: var(--accent-1); /* Keeps hover interaction */
+}
+
+/* ------------ Skills Grid ------------ */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 16px 0;
+}
+
+.skill-group {
+    background: linear-gradient(135deg, var(--bg-secondary) 40%, rgba(255, 255, 255, 0.02) 100%);
+    padding: 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(107, 107, 107, 0.15);
+    
+    /* Animation implementation */
+    opacity: 0;
+    animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.skill-group:nth-child(1) { animation-delay: 0.1s; }
+.skill-group:nth-child(2) { animation-delay: 0.2s; }
+.skill-group:nth-child(3) { animation-delay: 0.3s; }
+.skill-group:nth-child(4) { animation-delay: 0.4s; }
+.skill-group:nth-child(5) { animation-delay: 0.5s; }
+.skill-group:nth-child(6) { animation-delay: 0.6s; }
+
+.skill-group:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: var(--accent-1);
+    box-shadow: 0 8px 20px rgba(246, 211, 101, 0.15);
+    background: linear-gradient(135deg, var(--bg-secondary) 10%, rgba(246, 211, 101, 0.05) 100%);
+}
+
+:root.dark .skill-group:hover {
+    border-color: var(--accent-1);
+    box-shadow: 0 8px 20px rgba(114, 137, 218, 0.2);
+    background: linear-gradient(135deg, var(--bg-secondary) 10%, rgba(114, 137, 218, 0.08) 100%);
+}
+
+.skill-group h3 {
+    margin: 0 0 8px 0;
+    font-size: 1rem;
+    color: var(--accent-1);
+    transition: transform 0.2s ease;
+}
+
+.skill-group:hover h3 {
+    transform: translateX(4px); /* Slight nudge right on hover */
+}
+
+.skill-group p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+/* ------ Company Wrapper & Icons ------ */
+
+.company-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px; 
+    margin: 8px 0 16px 0;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed rgba(107, 107, 107, 0.15); /* Clean separator line */
+}
+
+:root.dark .company-wrap {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.company-wrap .company {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.company-icon {
+    color: var(--accent-1);
+    flex-shrink: 0;
+    background: rgba(246, 211, 101, 0.15); /* Added a soft background box for the icon */
+    padding: 6px;
+    border-radius: 8px;
+    width: 18px; 
+    height: 18px;
+}
+
+:root.dark .company-icon {
+    background: rgba(114, 137, 218, 0.15);
+}
