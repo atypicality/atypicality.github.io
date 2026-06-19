@@ -1,5 +1,5 @@
 # me
-Personal Website but I will refuse any and all chatgpt support
+Personal Website, please don't copy without permission...
 
 
 # Resources:

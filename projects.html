@@ -3,11 +3,24 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contact | Dathan Lang</title>
+    <title>Projects | Dathan Lang</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .chart-container { width: 100%; overflow-x: auto; background: var(--bg-secondary); border-radius: 12px; border: 1px solid rgba(107, 107, 107, 0.15); padding: 20px; margin-top: 16px; box-sizing: border-box; }
+        .chart-container svg { display: block; width: 100%; height: auto; }
+        .spreadsheet-container { width: 100%; overflow-x: auto; margin-top: 16px; border-radius: 12px; border: 1px solid rgba(107, 107, 107, 0.15); background: var(--bg-secondary); }
+        .research-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; text-align: left; }
+        .research-table th, .research-table td { padding: 12px 16px; border-bottom: 1px solid rgba(107, 107, 107, 0.15); border-right: 1px solid rgba(107, 107, 107, 0.1); }
+        .research-table th { background: rgba(107, 107, 107, 0.05); font-weight: 600; color: var(--text); position: sticky; top: 0; }
+        .research-table td { color: var(--muted); transition: background 0.2s; }
+        .research-table td[contenteditable="true"]:hover { background: rgba(var(--accent-rgb), 0.1); outline: 2px solid var(--accent-1); }
+        .resume-item.card { opacity: 0; transition: transform 0.3s ease, opacity 0.6s ease; }
+        .is-visible { opacity: 1; animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    </style>
 </head>
 
 <body>
@@ -28,8 +41,8 @@
         <div id="navigation">
             <h3><strong>Navigation</strong></h3>
             <ul>
-                <li>    
-                    <a href="#"> 
+                <li>
+                    <a href="index.html"> 
                         <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -39,7 +52,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="projects.html">
+                    <a href="#">
                         <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.8">
@@ -51,7 +64,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="contacts.html">
                         <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.8">
@@ -86,41 +99,35 @@
 
     <div id="main-content">
         <section class="page-header">
-            <h1>☝️ Get In Touch</h1>
-            <p class="subtitle">I am always willing to connection-max on linkedin!</p>
+            <h1>🛠️ Projects</h1>
+            <p class="subtitle">LOWKEY IN DEVELOPMENT... :SOB:</p>
         </section>
 
-        <!-- Contact Methods -->
         <section class="resume-section">
-            <h2>🤪 Contact Info</h2>
+            <h2>Quantum State Visualizer</h2>
             <div class="resume-item card">
-                <ul class="resume-list">
-                    <li><strong>Email:</strong> <a href="mailto:langd4@rpi.edu">langd4@rpi.edu</a></li>
-                    <li><strong>Phone:</strong> <a href="tel:(267) 471-5515">(267) 471-5515</a></li>
-                    <li><strong>Instagram:</strong> <a href="https://instagram.com/dathan.lang" target="_blank">@dathan.lang</a></li>
-                </ul>
+                <div class="chart-container" id="d3-wave"></div>
             </div>
         </section>
 
-        <!-- Conversation Starters -->
         <section class="resume-section">
-            <h2>😱 What I'm into lately...</h2>
+            <h2>Interference Pattern Analysis</h2>
             <div class="resume-item card">
-                <p>Things I've spent too much time in:</p>
-                <ul class="resume-list">
-                    <li><strong>Anime:</strong> Currently caught up with <em>Witch Hat Atelier</em>—the art style and world-building are incredibly creative.</li>
-                    <li><strong>Music:</strong> Currently transcribing sheet music for my J-pop band, UTA. My latest project is an arrangement of "Mixed Nuts":
-                        <div class="chart-container" style="max-width: 600px; margin: 12px auto;">
-                    <div style="width: 100%; transform: scale(0.9); transform-origin: top center;">
-                        <iframe id="score-iframe" width="100%" height="350" src="https://musescore.com/user/88943386/scores/35060363/embed" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>
-                    </div>
-                    <p style="font-size: 0.85rem; margin-top: -20px; text-align: center;">
-                        <a href="https://musescore.com/user/88943386/scores/35060363/s/pa_rr0" target="_blank">Mixed Nuts - SPY×FAMILY OP</a> by <a href="https://musescore.com/user/88943386">dathandlang</a>
-                    </p>
+                <div class="chart-container" id="d3-interference"></div>
+            </div>
+        </section>
+
+        <section class="resume-section">
+            <h2>Research Data Matrix</h2>
+            <div class="resume-item card">
+                <div class="spreadsheet-container">
+                    <table class="research-table">
+                        <thead><tr><th>Sample ID</th><th>Energy (eV)</th><th>Variance</th></tr></thead>
+                        <tbody>
+                            <tr><td>QT-001</td><td contenteditable="true">14.23</td><td>0.004</td></tr>
+                        </tbody>
+                    </table>
                 </div>
-                    </li>
-                    <li><strong>General:</strong> Always down for debates on game theory, AI ethics, and why its always Knicks in 5! 🏀</li>
-                </ul>
             </div>
         </section>
 
@@ -130,18 +137,41 @@
     </div>
 
     <script>
+        // Theme Toggle Logic
         document.addEventListener('DOMContentLoaded', () => {
             const toggle = document.getElementById('dark-toggle');
             const root = document.documentElement;
             const saved = localStorage.getItem('theme');
-            if (saved === 'dark') {
-                root.classList.add('dark');
-                toggle.checked = true;
-            }
+            if (saved === 'dark') { root.classList.add('dark'); toggle.checked = true; }
             toggle.addEventListener('change', () => {
                 root.classList.toggle('dark');
                 localStorage.setItem('theme', toggle.checked ? 'dark' : 'light');
             });
+
+            // Intersection Observer for Animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('is-visible'); });
+            }, {threshold: 0.1});
+            document.querySelectorAll('.card').forEach(c => observer.observe(c));
+
+            // Quantum Graph 1: Wave Packet
+            function drawWave() {
+                const svg = d3.select("#d3-wave").append("svg").attr("viewBox", "0 0 800 200");
+                const data = d3.range(0, 10, 0.1).map(d => ({x: d, y: Math.sin(d * 3) * Math.exp(-Math.pow(d - 5, 2) / 4) * 50 + 100}));
+                const line = d3.line().x(d => d.x * 80).y(d => d.y);
+                svg.append("path").datum(data).attr("fill", "none").attr("stroke", "var(--accent-1)").attr("stroke-width", 3).attr("d", line);
+            }
+
+            // Quantum Graph 2: Interference
+            function drawInterference() {
+                const svg = d3.select("#d3-interference").append("svg").attr("viewBox", "0 0 800 200");
+                const data = d3.range(0, 10, 0.05).map(d => ({x: d, y: Math.sin(d * 5)**2 * 100 + 50}));
+                const line = d3.line().x(d => d.x * 80).y(d => d.y);
+                svg.append("path").datum(data).attr("fill", "none").attr("stroke", "var(--accent-2)").attr("stroke-width", 2).attr("d", line);
+            }
+
+            drawWave();
+            drawInterference();
         });
     </script>
 </body>
