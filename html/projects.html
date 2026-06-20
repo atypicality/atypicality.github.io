@@ -8,18 +8,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/resume.css">
-    <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
-        .chart-container { width: 100%; overflow-x: auto; background: var(--bg-secondary); border-radius: 12px; border: 1px solid rgba(107, 107, 107, 0.15); padding: 20px; margin-top: 16px; box-sizing: border-box; }
-        .chart-container svg { display: block; width: 100%; height: auto; }
-        .spreadsheet-container { width: 100%; overflow-x: auto; margin-top: 16px; border-radius: 12px; border: 1px solid rgba(107, 107, 107, 0.15); background: var(--bg-secondary); }
-        .research-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; text-align: left; }
-        .research-table th, .research-table td { padding: 12px 16px; border-bottom: 1px solid rgba(107, 107, 107, 0.15); border-right: 1px solid rgba(107, 107, 107, 0.1); }
-        .research-table th { background: rgba(107, 107, 107, 0.05); font-weight: 600; color: var(--text); position: sticky; top: 0; }
-        .research-table td { color: var(--muted); transition: background 0.2s; }
-        .research-table td[contenteditable="true"]:hover { background: rgba(var(--accent-rgb), 0.1); outline: 2px solid var(--accent-1); }
-        .resume-item.card { opacity: 0; transition: transform 0.3s ease, opacity 0.6s ease; }
+        .project-description { padding: 20px; line-height: 1.6; color: var(--text); }
+        .tech-tag { display: inline-block; background: rgba(var(--accent-rgb), 0.1); color: var(--accent-1); padding: 2px 8px; border-radius: 4px; font-size: 0.85rem; font-weight: 600; margin-right: 8px; margin-bottom: 8px; }
+        .resume-item.card { opacity: 0; transition: transform 0.3s ease, opacity 0.6s ease; padding: 20px; }
         .is-visible { opacity: 1; animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        
+        /* Links for project titles */
+        h2 a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
+        h2 a:hover { color: var(--accent-1); text-decoration: underline; }
+
+        /* Slideshow Styles */
+        .slideshow-container { position: relative; max-width: 100%; margin: 15px auto; border-radius: 8px; overflow: hidden; background: rgba(0,0,0,0.05); border: 1px solid rgba(107, 107, 107, 0.15); }
+        
+        /* Fixed height for slides and constrained images */
+        .slide { display: none; height: 350px; padding: 10px; box-sizing: border-box; align-items: center; justify-content: center; }
+        .slide img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; border-radius: 4px; }
+        
+        .prev, .next { cursor: pointer; position: absolute; top: 50%; width: auto; padding: 10px 15px; margin-top: -22px; color: var(--text); font-weight: bold; font-size: 18px; transition: 0.3s ease; border-radius: 0 3px 3px 0; user-select: none; background: rgba(0,0,0,0.1); }
+        .next { right: 0; border-radius: 3px 0 0 3px; }
+        .prev:hover, .next:hover { background-color: var(--accent-1); color: white; }
+        .fade { animation-name: fade; animation-duration: 1.5s; }
+        @keyframes fade { from {opacity: .4} to {opacity: 1} }
     </style>
     <link id="favicon" rel="icon" type="image/x-icon" href="../resources/images/siteIconClear.png">
 </head>
@@ -42,58 +52,18 @@
         <div id="navigation">
             <h3><strong>Navigation</strong></h3>
             <ul>
-                <li>
-                    <a href="index.html"> 
-                        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M3 10.5 12 3l9 7.5"/>
-                            <path d="M5 9.5V21h14V9.5"/>
-                        </svg>Home
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.8">
-                            <rect x="3" y="3" width="7" height="7" rx="1"/>
-                            <rect x="14" y="3" width="7" height="7" rx="1"/>
-                            <rect x="3" y="14" width="7" height="7" rx="1"/>
-                            <rect x="14" y="14" width="7" height="7" rx="1"/>
-                        </svg>Projects
-                    </a>
-                </li>
-                <li>
-                    <a href="contacts.html">
-                        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.8">
-                            <path d="M4 7h16M4 12h16M4 17h16"/>
-                        </svg>Contact
-                    </a>
-                </li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Projects</a></li>
+                <li><a href="contacts.html">Contact</a></li>
             </ul>
         </div>
         <hr>
         <div id="socials">
             <h3><strong>Stay Connected</strong></h3>
             <ul>
-                <li><a href="https://woogles.io/profile/dathanl" aria-label="Woogles profile">
-                    <!-- simple globe SVG -->
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15 15 0 0 1 0 20"></path></svg>
-                    Woogles
-                </a></li>
-                <li><a href="https://www.linkedin.com/in/dathanl/" aria-label="LinkedIn">
-                    <!-- briefcase SVG -->
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 3h-8v4h8z"></path></svg>
-                    LinkedIn
-                </a></li>
-                <li><a href="https://github.com/atypicality" aria-label="GitHub">
-                    <!-- GitHub octopus mark -->
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.14-1.11-1.44-1.11-1.44-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.83-2.34 4.68-4.57 4.92.36.31.68.93.68 1.88v2.79c0 .26.18.58.69.48C19.14 20.16 22 16.42 22 12c0-5.52-4.48-10-10-10z"></path></svg>
-                    GitHub
-                </a></li>
+                <li><a href="https://woogles.io/profile/dathanl">Woogles</a></li>
+                <li><a href="https://www.linkedin.com/in/dathanl/">LinkedIn</a></li>
+                <li><a href="https://github.com/atypicality">GitHub</a></li>
             </ul>
         </div>
     </div>
@@ -101,33 +71,59 @@
     <div id="main-content">
         <section class="page-header">
             <h1>🛠️ Projects</h1>
-            <p class="subtitle">LOWKEY IN DEVELOPMENT... :SOB:</p>
+            <p class="subtitle">Besides my homepage projects, here are things I am or have worked on!</p>
         </section>
 
+        <!-- 8th Wonder Project -->
         <section class="resume-section">
-            <h2>Quantum State Visualizer</h2>
+            <h2><a href="https://atypicality.github.io/index.html" target="_blank">8th Wonder - RPI K-Pop Dance Group Website 🪩</a></h2>
             <div class="resume-item card">
-                <div class="chart-container" id="d3-wave"></div>
+                <div class="project-description">
+                    <span class="tech-tag">Web Development</span><span class="tech-tag">UI/UX Design</span><span class="tech-tag">PHP</span><span class="tech-tag">JQuery</span>
+                    <p>A dedicated website showcasing 8th Wonder, Rensselaer Polytechnic Institute's premier K-pop dance cover group. The platform features group information, performance portfolios, and member profiles to help expand the group's digital presence and community outreach.</p>
+                    
+                    <!-- Notice we pass 'this' into the plusSlides function now -->
+                    <div class="slideshow-container">
+                        <div class="slide fade" style="display:flex;"> <img src="../resources/images/eighthWonderHome.png" alt="8th Wonder Homepage"> </div>
+                        <div class="slide fade" style="display:none;"> <img src="../resources/images/eventsEighthWonder.png" alt="Events Page"> </div>
+                        <div class="slide fade" style="display:none;"> <img src="../resources/images/calendarEighthWonder.png" alt="Calendar Page"> </div>
+                        <a class="prev" onclick="plusSlides(-1, this)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1, this)">&#10095;</a>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- Scrabble Project -->
         <section class="resume-section">
-            <h2>Interference Pattern Analysis</h2>
+            <h2><a href="https://docs.google.com/spreadsheets/d/1uEBvN0p0XvZFAqZeKCrU-kcA18CIx_C0egC_2PdPIaQ/edit?usp=sharing" target="_blank">3-letter Power Tile Word Optimization Analyzer 📈</a></h2>
             <div class="resume-item card">
-                <div class="chart-container" id="d3-interference"></div>
+                <div class="project-description">
+                    <span class="tech-tag">Java</span><span class="tech-tag">Data Analysis</span><span class="tech-tag">Game Theory</span>
+                    <p> For my AP Research Project, I developed a data collection and analysis tool to catalog 3-letter power tile play from a Scrabble ML Engine to identify optimal strategies. 
+                        This project involved simulating over 10,000 games, collecting data on tile usage frequency, and analyzing patterns on word placement, through the Java Robotics Class.  
+                    </p>
+                    
+                    <div class="slideshow-container">
+                        <div class="slide fade" style="display:flex;"> <img src="../resources/images/Overall3LetterJQXZBestWords.png" alt="Image 1: Spreadsheet Data View"> </div>
+                        <div class="slide fade" style="display:none;"> <img src="../resources/images/TimesJQXZwasRackStuckover10,000SimulatedGames.png" alt="Image 2: Frequency Analysis Chart"> </div>
+                        <div class="slide fade" style="display:none;"> <img src="../resources/images/SpreadsheetOverview.png" alt="Image 3: Usage Frequency Spreadsheet"> </div>
+                        <a class="prev" onclick="plusSlides(-1, this)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1, this)">&#10095;</a>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- Ongoing Website -->
         <section class="resume-section">
-            <h2>Research Data Matrix</h2>
+            <h2>This Personal Website 🥳</h2>
             <div class="resume-item card">
-                <div class="spreadsheet-container">
-                    <table class="research-table">
-                        <thead><tr><th>Sample ID</th><th>Energy (eV)</th><th>Variance</th></tr></thead>
-                        <tbody>
-                            <tr><td>QT-001</td><td contenteditable="true">14.23</td><td>0.004</td></tr>
-                        </tbody>
-                    </table>
+                <div class="project-description">
+                    <span class="tech-tag">HTML/CSS</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Continuous Integration</span>
+                    <p> My personal website is an ongoing project where I experiment with various ui elements and techniques to create a modern and responsive design that showcases my work and abilities.
+                        Although currently static, I am moving towards implementing a backend for more dynamic content and features, such as games with leaderboards or etc.... 
+                    </p>
                 </div>
             </div>
         </section>
@@ -139,32 +135,45 @@
 
     <script src="../js/index.js"></script>
     <script>
+        // Intersection Observer for fade-in animations
         document.addEventListener('DOMContentLoaded', () => {
-            // Intersection Observer for Animations
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('is-visible'); });
             }, {threshold: 0.1});
             document.querySelectorAll('.card').forEach(c => observer.observe(c));
-
-            // Quantum Graph 1: Wave Packet
-            function drawWave() {
-                const svg = d3.select("#d3-wave").append("svg").attr("viewBox", "0 0 800 200");
-                const data = d3.range(0, 10, 0.1).map(d => ({x: d, y: Math.sin(d * 3) * Math.exp(-Math.pow(d - 5, 2) / 4) * 50 + 100}));
-                const line = d3.line().x(d => d.x * 80).y(d => d.y);
-                svg.append("path").datum(data).attr("fill", "none").attr("stroke", "var(--accent-1)").attr("stroke-width", 3).attr("d", line);
-            }
-
-            // Quantum Graph 2: Interference
-            function drawInterference() {
-                const svg = d3.select("#d3-interference").append("svg").attr("viewBox", "0 0 800 200");
-                const data = d3.range(0, 10, 0.05).map(d => ({x: d, y: Math.sin(d * 5)**2 * 100 + 50}));
-                const line = d3.line().x(d => d.x * 80).y(d => d.y);
-                svg.append("path").datum(data).attr("fill", "none").attr("stroke", "var(--accent-2)").attr("stroke-width", 2).attr("d", line);
-            }
-
-            drawWave();
-            drawInterference();
         });
+
+        // Independent Slideshow Logic
+        function plusSlides(direction, buttonElement) {
+            // Find the specific slideshow container for the button that was clicked
+            const container = buttonElement.closest('.slideshow-container');
+            const slides = container.querySelectorAll('.slide');
+            
+            // Determine which slide in THIS container is currently visible
+            let currentIndex = 0;
+            for (let i = 0; i < slides.length; i++) {
+                if (slides[i].style.display === "flex") {
+                    currentIndex = i;
+                    break;
+                }
+            }
+            
+            // Hide the current slide
+            slides[currentIndex].style.display = "none";
+            
+            // Calculate the index for the next slide to show
+            let newIndex = currentIndex + direction;
+            
+            // Loop back to the beginning or end if necessary
+            if (newIndex >= slides.length) {
+                newIndex = 0;
+            } else if (newIndex < 0) {
+                newIndex = slides.length - 1;
+            }
+            
+            // Display the new slide
+            slides[newIndex].style.display = "flex";
+        }
     </script>
 </body>
 </html>
