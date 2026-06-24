@@ -4,14 +4,14 @@
 }
 
 .page-header h1 {
-    margin: 20 0 8px 0;
-    font-size: 2rem;
+    margin: 20px 0 8px 0;
+    font-size: clamp(1.75rem, 4vw, 2rem);
     font-weight: 800;
 }
 
 .page-header .subtitle {
     color: var(--muted);
-    font-size: 1.05rem;
+    font-size: clamp(1.05rem, 1.2vw, 1.25rem);
     margin: 0;
 }
 
@@ -20,14 +20,15 @@
 }
 
 .resume-section h2 {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
     font-weight: 700;
-    margin-top: -30px;
     color: var(--text);
+    margin-top: 0;
+    margin-bottom: 16px;
 }
 
 .resume-section h3 {
-    font-size: 1.15rem;
+    font-size: clamp(1rem, 2vw, 1.15rem);
     font-weight: 700;
     margin: 16px 0 8px 0;
     color: var(--text);
@@ -40,13 +41,11 @@
 .resume-item.card {
     /* Subtle warm gradient using your accent variables */
     background: linear-gradient(135deg, var(--bg-secondary) 40%, rgba(246, 211, 101, 0.04) 100%);
-    padding: 24px;
+    padding: clamp(16px, 3vw, 24px);
     border-radius: 12px;
     border: 1px solid rgba(107, 107, 107, 0.15);
     box-shadow: 0 4px 15px var(--shadow);
     margin-bottom: 20px;
-    
-    /* Animation implementation */
     opacity: 0;
     animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
@@ -89,12 +88,14 @@
 .resume-header h3 {
     margin: 0;
     flex: 1;
+    min-width: 0;
 }
 
 .resume-header .date {
     color: var(--muted);
     font-size: 0.95rem;
     flex-shrink: 0;
+    white-space: nowrap;
 }
 
 .company {
@@ -111,7 +112,7 @@
 
 .resume-list li {
     padding: 8px 12px 8px 28px; /* Added padding to hold the background highlight */
-    margin-left: -12px; /* Pull back to keep text aligned */
+    padding-left: 28px;
     border-radius: 8px; /* Rounded highlight on hover */
     position: relative;
     color: var(--muted);
@@ -166,7 +167,10 @@ a:hover {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 250px), 1fr)
+    );    
     gap: 16px;
     margin: 16px 0;
 }
@@ -245,10 +249,10 @@ a:hover {
     color: var(--accent-1);
     flex-shrink: 0;
     background: rgba(246, 211, 101, 0.15); /* Added a soft background box for the icon */
-    padding: 6px;
     border-radius: 8px;
-    width: 18px; 
-    height: 18px;
+    width: clamp(16px, 2vw, 30px);
+    height: clamp(16px, 2vw, 30px);
+    padding: clamp(4px, 1vw, 6px);
 }
 
 :root.dark .company-icon {
@@ -269,20 +273,190 @@ a:hover {
 
 /* Force each slide block to a standard height */
 .slide { 
-    display: none; 
-    height: 350px; /* Adjust this value to your preferred fixed height */
+    display: none;
+    height: clamp(180px, 40vw, 350px);
+    min-height: 180px;    
     align-items: center; 
     justify-content: center; 
     padding: 10px;
     box-sizing: border-box;
 }
 
-/* Force images to scale elegantly within that fixed box */
 .slide img {
     max-width: 100%;
     max-height: 100%;
     width: auto;
     height: auto;
-    object-fit: contain; /* Prevents distortion, fits image completely inside */
+    object-fit: contain; 
     border-radius: 4px;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+
+    .page-header {
+        margin-bottom: 24px;
+    }
+
+    .page-header h1 {
+        margin-top: 0;
+        text-align: center;
+    }
+
+    .page-header .subtitle {
+        text-align: center;
+    }
+
+    .resume-section h2 {
+        margin-top: 0;
+    }
+
+    /* Experience / Education headers */
+    .resume-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .resume-header .date {
+        white-space: normal;
+        font-size: 0.9rem;
+    }
+
+    .company-wrap {
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .company-icon {
+        width: 24px;
+        height: 24px;
+        padding: 4px;
+    }
+
+    /* Cards */
+    .resume-item.card {
+        padding: 18px;
+    }
+
+    /* Reduce hover transforms */
+    .resume-item.card:hover {
+        transform: translateY(-2px);
+    }
+
+    .skill-group:hover {
+        transform: translateY(-2px);
+    }
+
+    /* Skills */
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    /* Bullet points */
+    .resume-list li {
+        padding-left: 24px;
+        line-height: 1.55;
+    }
+
+    .resume-list li:before {
+        left: 8px;
+    }
+
+    /* Slideshow */
+    .slide {
+        height: 260px;
+        min-height: 260px;
+        padding: 8px;
+    }
+
+    .slide img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+}
+
+
+/* Small Phones */
+@media (max-width: 480px) {
+
+    .page-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .page-header .subtitle {
+        font-size: 1rem;
+    }
+
+    .resume-section {
+        margin: 20px 0;
+    }
+
+    .resume-section h2 {
+        font-size: 1.25rem;
+    }
+
+    .resume-section h3 {
+        font-size: 1rem;
+    }
+
+    .resume-item.card {
+        padding: 14px;
+        border-radius: 10px;
+    }
+
+    .company-wrap {
+        margin-bottom: 12px;
+        padding-bottom: 10px;
+    }
+
+    .company-wrap .company {
+        font-size: 1rem;
+    }
+
+    .resume-header .date {
+        font-size: 0.85rem;
+    }
+
+    .resume-list li {
+        padding: 6px 8px 6px 22px;
+        font-size: 0.95rem;
+    }
+
+    .skill-group {
+        padding: 14px;
+    }
+
+    .skill-group p {
+        font-size: 0.95rem;
+    }
+
+    /* Smaller slideshow */
+    .slide {
+        height: 220px;
+        min-height: 220px;
+    }
+}
+
+
+/* Touch Devices */
+@media (hover: none) {
+
+    .resume-item.card:hover,
+    .skill-group:hover,
+    .resume-list li:hover {
+        transform: none;
+        box-shadow: inherit;
+    }
+
+    .resume-list li:hover {
+        background: transparent;
+    }
+
+    .resume-list li:hover:before {
+        transform: none;
+    }
 }

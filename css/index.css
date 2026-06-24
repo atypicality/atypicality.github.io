@@ -22,17 +22,35 @@ html {
     min-height: 100%;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img,
+svg {
+    max-width: 100%;
+}
+
 body {
     margin: 0;
     font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     background: linear-gradient(180deg, var(--bg), #fffefa 60%);
-    background-attachment: fixed; /* Prevents gradient from cutting off on long pages */
+    background-attachment: fixed;
     color: var(--text);
+
     display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 40px;
+    grid-template-columns: clamp(200px, 18vw, 260px) 1fr;
+    gap: clamp(20px, 3vw, 40px);
+
     min-height: 100vh;
-    padding: 20px 40px 30px 40px;
+
+    padding:
+        clamp(12px, 2vw, 20px)
+        clamp(16px, 4vw, 40px)
+        clamp(20px, 3vw, 30px);
+
     box-sizing: border-box;
     position: relative;
 }
@@ -46,8 +64,8 @@ body {
 .switch {
     position: relative;
     display: inline-block;
-    width: 42px;
-    height: 24px;
+    width: clamp(36px, 3vw, 42px);
+    height: clamp(20px, 1.8vw, 24px);
     flex-shrink: 0;
 }
 
@@ -97,13 +115,13 @@ body {
 
 /* Sidebar */
 #sidebar {
-    padding: 22px;
+    padding: clamp(16px, 1.5vw, 22px);
     background: var(--bg-secondary);
     border-radius: 12px;
     box-shadow: 0 6px 18px var(--shadow);
     height: fit-content;
     position: sticky;
-    top: 30px;
+    top: clamp(15px, 2vw, 30px);
 }
 
 .sidebar-header {
@@ -116,7 +134,7 @@ body {
 
 #sidebar h4 {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 1.1vw, 1.15rem);
     font-weight: 700;
 }
 
@@ -168,6 +186,8 @@ li {
 
 /* Main content */
 #main-content {
+    max-width: 1200px;
+    width: 100%;
     padding: 0;
     display: flex;
     flex-direction: column; /* Ensures footer drops to the bottom properly */
@@ -176,7 +196,7 @@ li {
 .subtitle {
     margin-top: 18px;
     font-family: Inter, sans-serif;
-    font-size: 0.82rem;
+    font-size: clamp(0.72rem, 0.8vw, 0.82rem);
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -203,7 +223,6 @@ footer {
     text-align: center;
 }
 
-/* --- Animations ---   (SHOULD MOVE TO ITS OWN FILE*/   
 @keyframes slideUpFade {
     0% {
         opacity: 0;
@@ -212,5 +231,29 @@ footer {
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 16px;
+    }
+
+    #sidebar {
+        position: static;
+        top: auto;
+        width: 100%;
+    }
+
+    #main-content {
+        width: 100%;
+        max-width: none;
+    }
+
+    #sidebar {
+        position: static;
     }
 }
